@@ -1,66 +1,71 @@
-import styles from './BotFrameworkChatPopupApplicationChat.module.scss';
-import * as React from 'react';
-import ReactWebChat from 'botframework-webchat';
-import { DirectLine } from 'botframework-directlinejs';
-import { Popper, Manager, Reference } from 'react-popper';
-import { Icon } from 'office-ui-fabric-react/lib/Icon';
-import { IBotFrameworkChatPopupApplicationChatProps } from "./IBotFrameworkChatPopupApplicationChatProps";
+import * as React from "react";
+import { Popper, Manager, Reference } from "react-popper";
+import { Icon } from "office-ui-fabric-react/lib/Icon";
 
-export interface IBotFrameworkChatPopupApplicationChatState {
-  directLine: any;
-  styleSetOptions: any;
-  isOpen: any;
-}
+export default class BotFrameworkChatPopupApplicationChat extends React.Component {
+  private handleClick = () => {
+    if (document.getElementById("chime-webclient").style.display === "none") {
+      document.getElementById("chime-webclient").style.display = "block";
+      document.getElementById("chime-webclient-x-btn").style.display = "block";
+    } else {
+      document.getElementById("chime-webclient").style.display = "none";
+      document.getElementById("chime-webclient-x-btn").style.display = "none";
+    }
+  };
 
-export default class BotFrameworkChatPopupApplicationChat extends React.Component< IBotFrameworkChatPopupApplicationChatProps, IBotFrameworkChatPopupApplicationChatState> {
-  constructor(props) {
-    super(props);
-    const styleOptions = {
-      hideScrollToEndButton: false,
-      rootHeight: '50%',
-      rootWidth: '50%'
-    };
-    this.state = {
-      directLine: new DirectLine({
-        secret: this.props.directLineSecret
-      }),
-      styleSetOptions: styleOptions,
-      isOpen: false
-    };
-  }
-       
   public render() {
     return (
-        <Manager>
-          <Reference>
-            {({ ref }) => (
-              <button
-                className = { styles.botButton }
-                type="button"
-                ref={ref}
-                onClick={this.handleClick}
-              >
-                <Icon iconName="Robot" className="ms-Icon" />
-              </button>
-            )}
-          </Reference>
-          {this.state.isOpen ? (
-            <Popper placement="right">
-              {({ ref, style, placement, arrowProps }) => (
-                <div ref={ref} style={style} data-placement={placement}>
-                  <ReactWebChat className = { styles.BotFrameworkChatPopupApplicationChat } directLine={ this.state.directLine } styleOptions={ this.state.styleSetOptions }/>
-                  <div ref={arrowProps.ref} style={arrowProps.style} />
-                </div>
-              )}
-            </Popper>
-          ) : null}
-        </Manager>
+      <div>
+        <button
+          id="chime-webclient-x-btn"
+          onClick={this.handleClick}
+          style={{
+            position: "fixed",
+            bottom: 520,
+            right: 28,
+            border: "none",
+            color: "gray",
+            cursor: "pointer",
+            display: "none"
+          }}
+        >
+          &#10006;
+        </button>
+        <iframe
+          id="chime-webclient"
+          src="https://ch-teams-net1.imchime.com/Chime/WebClient?id=1"
+          height="500px"
+          width="360px"
+          style={{
+            background: "white",
+            position: "fixed",
+            display: "none",
+            border: "none",
+            boxShadow:
+              "rgba(0, 0, 0, 0.4) 0px 0px 1px, rgba(0, 0, 0, 0.2) 0px 2px 6px",
+            bottom: 14,
+            right: 28,
+            zIndex: 10
+          }}
+        />
+        <button
+          onClick={this.handleClick}
+          style={{
+            position: "fixed",
+            cursor: "pointer",
+            width: 50,
+            height: 50,
+            bottom: 14,
+            right: 28,
+            padding: 5,
+            border: "none",
+            backgroundImage:
+              "url('http://www.instant-tech.com/images/chime_square.png')",
+            backgroundPosition: "center",
+            backgroundSize: "contain"
+          }}
+        ></button>
+      </div>
     );
-  }
-
-  private handleClick = () => {
-    this.setState({
-      isOpen: !this.state.isOpen,
-    });
   }
 }

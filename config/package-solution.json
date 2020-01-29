@@ -1,28 +1,25 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
   "solution": {
-    "name": "react-application-botframework-chat-client-side-solution",
+    "name": "Chime Web Client",
     "id": "dae0f6f5-ac4e-490f-9139-f1a6b8bcf6fe",
-    "version": "1.0.0.0",
+    "version": "1.0.0.7",
     "includeClientSideAssets": true,
     "skipFeatureDeployment": true,
     "isDomainIsolated": false,
     "features": [
       {
-        "title": "Application Extension - Deployment of custom action.",
-        "description": "Deploys a custom action with ClientSideComponentId association",
+        "title": "Chime Web Client",
+        "description": "Deploys a chat web client as a SharePoint extention to help end users route to a Chime queue",
         "id": "00029091-cc48-4275-8385-8f7d86afea81",
         "version": "1.0.0.0",
         "assets": {
-          "elementManifests": [
-            "elements.xml",
-            "clientsideinstance.xml"
-          ]
+          "elementManifests": ["elements.xml", "clientsideinstance.xml"]
         }
       }
     ]
   },
   "paths": {
-    "zippedPackage": "solution/react-application-botframework-chat.sppkg"
+    "zippedPackage": "solution/chime-extension.sppkg"
   }
 }
