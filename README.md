@@ -1,73 +1,35 @@
-# Bot Framework Chat React App Customizer
+# Instant Technologies
+
+## Chime SharePoint Web Client Extension
+
+![QnA chatbot](./assets/chime-sharepoint.PNG)
 
 ## Summary
-SPFx application extension that uses the [Bot Framework React Webchat Component](https://www.npmjs.com/package/botframework-webchat#integrate-with-react) to render a Bot Framework chat window
-
-![QnA chatbot](./assets/bf_app_customizer01.png)
-
-## Used SharePoint Framework Version
-
-![SPFx v1.9.1](https://img.shields.io/badge/SPFx-1.9.1-green.svg)
-
-## Applies to
-
-* [SharePoint Framework Extensions](https://dev.office.com/sharepoint/docs/spfx/extensions/overview-extensions)
-
-## Solution
-
-Solution|Author(s)
---------|---------
-react-application-botframework-chat|[Stephan Bisser](https://bisser.io) - [@stephanbisser](https://twitter.com/stephanbisser)
-
-## Version history
-
-Version|Date|Comments
--------|----|--------
-1.0.0|October 19, 2019|Initial release
-
-## Disclaimer
-
-**THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.**
-
----
+This project is a tool to create a SharePoint app (.sppkg file) for your Chime web client. This app will enable your end users to start a helpdesk or support conversation directly from your SharePoint sites. To learn more about Chime, please visit our website at https://www.addchime.com/index.html.
 
 ## Prerequisites
+- NodeJS
+- SharePoint admin access
+- [SharePoint app catalog](https://docs.microsoft.com/en-us/sharepoint/use-app-catalog)
 
-* Office 365 tenant with a modern site collection 
-* Bot Framework Bot with a Direct Line key ([more info on how to establish this here](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-directline?WT.mc_id=AI-MVP-5003073))
+## Step 1 - Setup this project for your Chime SharePoint deployment
+- Install Gulp `npm install -g gulp`
+- Clone this repo `git clone https://github.com/instant-technologies/chime-sp-extension.git`
+- Change directory to this project and install dependencies `npm install`
+- Update the string value in `/src/index.ts` with your Chime web client URL, for example `https://ch-teams-net1.imchime.com/Chime/WebClient?id=1`
 
-## Minimal Path to Awesome
+## Step 2 - Build your Chime SharePoint app
+- Run `gulp bundle --ship`
+- Run `gulp package-solution --ship`
+- The previous command will generate a `chime-extension.sppkg` file located in the `/sharepoint` folder. This is what you need to upload to your SharePoint app catalog.
 
-* clone this repo
-* edit "BotFrameworkChatPopupApplicationChat.tsx" file to set your Direct Line API Key directly (instead of setting it in the Tenant Wide Extensions list):
 
-```ts
-this.state = {
-    directLine: new DirectLine({
-    secret: this.props.directLineSecret //change this to the key directly if you want to test it
-    }),
-```
+## Step 3 - Deploy
+- [Enable the CDN in your Office 365 tenant to host your app](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/extensions/get-started/hosting-extension-from-office365-cdn)
+- Go to your SharePoint app catalog
+- Upload your `chime-extension.sppkg` file to your SharePoint app catalog
+- Go to one of your SharePoint sites
+- Click the site settings button, and click __Add an app__
+- Click __Chime Web Client__
 
-* in the command line run
-  * `npm i`
-  * `gulp serve --nobrowser`
-
-Then open up a SharePoint modern page and add the following string to your URL:
-
-```
-?loadSPFX=true&debugManifestsFile=https://localhost:4321/temp/manifests.js&customActions={"f50b07b5-76a5-4e80-9cab-b4ee9a591bf6":{"location":"ClientSideExtension.ApplicationCustomizer"}}
-```
-If you want to deploy it follow the steps [here](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/extensions/get-started/hosting-extension-from-office365-cdn) and add the following properties to the "Component Properties" column in the Tenant Wide Extensions List:
-
-```json
-{"allowedSites":["https://yourTenant.sharepoint.com/sites/abc"], "directLineSecret":"yourDirectLineSecret"}
-```
-
-## Features
-
-Sample SharePoint Framework application extension.
-
-This sample illustrates the following concepts on top of the SharePoint Framework:
-
-* using the Bot Framework webchat React component as some kind of flyout webpart in modern pages
-* adding a bot to modern pages and let users interact with a bot hosted in the Azure Bot Service
+After following the steps above, you should see a Chime button at the right-bottom-corner of your SharePoint page. Clicking that button should launch your Chime web client.
