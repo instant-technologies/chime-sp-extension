@@ -1,1 +1,2 @@
-// A file is required to be in the root of the /src directory by the TypeScript compiler
+// Please replace the following string with your Chime web client url
+export default "https://ch-teams-net1.imchime.com/Chime/WebClient?id=1";

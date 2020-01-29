@@ -1,6 +1,6 @@
 import * as React from "react";
-import { Popper, Manager, Reference } from "react-popper";
-import { Icon } from "office-ui-fabric-react/lib/Icon";
+
+import webClientUrl from "../../../index"
 
 export default class BotFrameworkChatPopupApplicationChat extends React.Component {
   private handleClick = () => {
@@ -33,7 +33,7 @@ export default class BotFrameworkChatPopupApplicationChat extends React.Componen
         </button>
         <iframe
           id="chime-webclient"
-          src="https://ch-teams-net1.imchime.com/Chime/WebClient?id=1"
+          src={webClientUrl}
           height="500px"
           width="360px"
           style={{
