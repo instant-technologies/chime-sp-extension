@@ -2,7 +2,7 @@
 
 ## Chime SharePoint Web Client Extension
 
-![QnA chatbot](./assets/chime-sharepoint.PNG)
+![Chime SharePoint Extension](./assets/chime-sharepoint-ss.PNG)
 
 ## Summary
 This project is a tool to create a SharePoint app (.sppkg file) for your Chime web client. This app will enable your end users to start a helpdesk or support conversation directly from your SharePoint sites. To learn more about Chime, please visit our website at https://www.addchime.com/index.html.
