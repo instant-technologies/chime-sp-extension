@@ -12,7 +12,7 @@ Please visit our website at https://www.addchime.com/index.html to learn more ab
 - SharePoint admin access
 - [SharePoint app catalog](https://docs.microsoft.com/en-us/sharepoint/use-app-catalog)
 
-## Step 1 - Setup this project for your Chime SharePoint deployment
+## Step 1 - Setup this project
 - Install Gulp `npm install -g gulp`
 - Clone this repo `git clone https://github.com/instant-technologies/chime-sp-extension.git`
 - Change directory to this project and install dependencies `npm install`
