@@ -1,6 +1,4 @@
-# Instant Technologies
-
-## Chime SharePoint Web Client Extension
+# Chime SharePoint Web Client Extension
 
 ![Chime SharePoint Extension](./assets/chime-sharepoint-ss.PNG)
 
