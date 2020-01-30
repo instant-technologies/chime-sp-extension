@@ -5,7 +5,9 @@
 ![Chime SharePoint Extension](./assets/chime-sharepoint-ss.PNG)
 
 ## Summary
-This project is a tool to create a SharePoint app (.sppkg file) for your Chime web client. This app will enable your end users to start a helpdesk or support conversation directly from your SharePoint sites. To learn more about Chime, please visit our website at https://www.addchime.com/index.html.
+This project is supposed to work as a tool to build a Chime web client SharePoint app (.sppkg file). Once deployed, this app can help your end users start a conversation with live agents directly from your SharePoint sites. 
+
+Please visit our website at https://www.addchime.com/index.html to learn more about Chime.
 
 ## Prerequisites
 - NodeJS
