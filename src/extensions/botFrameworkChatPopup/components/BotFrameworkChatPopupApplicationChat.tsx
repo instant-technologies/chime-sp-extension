@@ -1,6 +1,7 @@
 import * as React from "react";
 
 import webClientUrl from "../../../index"
+const Icon = require("./icon.png")
 
 export default class BotFrameworkChatPopupApplicationChat extends React.Component {
   private handleClick = () => {
@@ -58,11 +59,10 @@ export default class BotFrameworkChatPopupApplicationChat extends React.Componen
             bottom: 14,
             right: 28,
             padding: 5,
-            border: "none",
-            backgroundImage:
-              "url('http://www.instant-tech.com/images/chime_square.png')",
+            backgroundImage: `url(${Icon})`,
             backgroundPosition: "center",
-            backgroundSize: "contain"
+            backgroundSize: "contain",
+            border: "1px solid #eaeaea"
           }}
         ></button>
       </div>
