@@ -26,6 +26,6 @@
     "@microsoft/sp-webpart-workbench": "1.9.1",
     "@microsoft/rush-stack-compiler-2.9": "0.7.16",
     "gulp": "~3.9.1",
-    "ajv": "~5.2.2"
+    "ajv": "~6.12.3"
   }
 }
